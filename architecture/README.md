@@ -1,7 +1,7 @@
 # SOC Architecture — Mini Sentrix
 
-Excalidraw live link: https://excalidraw.com/\#json\=zT1esMgZod-sJwNVimpoX,1xYQ49oPJojndauB-jmzTg
-
+Excalidraw live link: [https://excalidraw.com/\#json\=zT1esMgZod-sJwNVimpoX,1xYQ49oPJojndauB-jmzTg
+](https://excalidraw.com/#json=Lu9fP0xAqCIFWVm-kGIC5,zec2OqrFYE3tl2FzhOUxmA)
 ---
 
 ## System Overview
