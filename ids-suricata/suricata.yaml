@@ -1,0 +1,25 @@
+# Suricata Configuration - Mini Sentrix SOC (Day 1)
+# VM3 - Ubuntu Server - IDS Layer
+
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
+    # Default range used - covers host-only VMnet subnet (192.168.x.x)
+    # All VM1 (attacker), VM2 (target), VM3 (this box) fall inside this range
+
+af-packet:
+  - interface: ens33   # <-- REPLACE with your actual interface name from `ip a`
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types:
+        - alert
+        - dns
+        - http
+        - tls
