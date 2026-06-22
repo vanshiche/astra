@@ -1,0 +1,23 @@
+Mini Sentrix SOAR Workflow
+
+Trigger:
+Hydra brute-force attack detected by Suricata/Wazuh.
+
+Flow:
+1. Attacker launches brute-force attempt.
+2. Suricata detects suspicious traffic.
+3. Alert is forwarded to Wazuh/SIEM.
+4. SIEM sends alert to Shuffle webhook.
+5. Shuffle extracts source IP from alert.
+6. If alert type = brute force OR repeated authentication failure:
+      Execute response action.
+7. Response action:
+      Block attacker IP using firewall rule.
+8. Notify SOC team.
+9. Store event for audit.
+
+Example automatic response:
+sudo iptables -A INPUT -s <attacker-ip> -j DROP
+
+Success condition:
+After attack alert, attacker IP cannot reach target service.
